@@ -314,9 +314,10 @@
         }
         .lightbox img, .lightbox iframe {
             max-width: 90%;
-            max-height: 70%;
+            max-height: 80vh;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            object-fit: contain;
         }
         .lightbox-caption {
             color: #fff;
@@ -517,7 +518,7 @@
                 gap: 1.5rem;
             }
             .gallery-item img, .video-post img, .member-item img {
-                height: 180px;
+                height: 200px;
             }
             .video-post-content {
                 padding: 1rem;
@@ -527,6 +528,9 @@
             }
             .video-post p {
                 font-size: 0.8rem;
+            }
+            .lightbox img, .lightbox iframe {
+                max-height: 60vh;
             }
             .lightbox-caption {
                 font-size: 1rem;
@@ -553,7 +557,7 @@
                 width: 160px;
             }
             .gallery-item img, .video-post img, .member-item img {
-                height: 140px;
+                height: 160px;
             }
             .video-post-content {
                 padding: 0.8rem;
@@ -566,6 +570,9 @@
             }
             .video-post-meta {
                 font-size: 0.7rem;
+            }
+            .lightbox img, .lightbox iframe {
+                max-height: 50vh;
             }
             .lightbox-caption {
                 font-size: 0.9rem;
