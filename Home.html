@@ -13,13 +13,11 @@
             box-sizing: border-box;
             font-family: 'Roboto', sans-serif;
         }
-
         body {
             line-height: 1.7;
             background-color: #f5f6f5;
             color: #333;
         }
-
         /* Navigation Bar */
         .navbar {
             background: linear-gradient(90deg, #1a3c5e, #265780);
@@ -30,7 +28,6 @@
             z-index: 1000;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
-
         .navbar-container {
             max-width: 1100px;
             margin: 0 auto;
@@ -38,13 +35,11 @@
             justify-content: space-between;
             align-items: center;
         }
-
         .navbar ul {
             list-style: none;
             display: flex;
             gap: 3rem;
         }
-
         .navbar a {
             color: #f4f7fa;
             text-decoration: none;
@@ -52,19 +47,16 @@
             font-weight: 400;
             transition: color 0.3s ease;
         }
-
         .navbar a:hover, .navbar a.active {
             color: #4a90e2;
             border-bottom: 2px solid #4a90e2;
         }
-
         .hamburger {
             display: none;
             font-size: 1.8rem;
             color: #f4f7fa;
             cursor: pointer;
         }
-
         /* Hero Section */
         .hero {
             height: 100vh;
@@ -76,7 +68,6 @@
             color: #fff;
             position: relative;
         }
-
         .hero::before {
             content: '';
             position: absolute;
@@ -86,7 +77,6 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
         }
-
         .hero-content {
             background: rgba(0, 0, 0, 0.65);
             padding: 3rem;
@@ -95,18 +85,15 @@
             z-index: 1;
             animation: fadeIn 1.2s ease-in-out;
         }
-
         .hero h1 {
             font-size: 3.8rem;
             font-weight: 700;
             margin-bottom: 1.5rem;
         }
-
         .hero p {
             font-size: 1.4rem;
             margin-bottom: 2rem;
         }
-
         .hero-button {
             display: inline-block;
             padding: 1rem 2.5rem;
@@ -118,13 +105,11 @@
             font-weight: 400;
             transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .hero-button:hover {
             background-color: #357abd;
             transform: translateY(-3px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
         /* Content Sections */
         .content {
             max-width: 1100px;
@@ -135,7 +120,6 @@
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.8s ease-in;
         }
-
         .content h2 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -143,13 +127,18 @@
             margin-bottom: 1.5rem;
             text-align: center;
         }
-
+        .content h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1a3c5e;
+            margin: 2rem 0 1rem;
+            text-align: center;
+        }
         .content p {
             font-size: 1.1rem;
             color: #34495e;
             margin-bottom: 1rem;
         }
-
         /* Services Grid */
         .services-grid {
             display: grid;
@@ -157,7 +146,6 @@
             gap: 1.5rem;
             margin-top: 2rem;
         }
-
         .service-item {
             background: #f9f9f9;
             padding: 1.5rem;
@@ -165,12 +153,10 @@
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .service-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
         /* Gallery Section */
         .gallery-grid {
             display: grid;
@@ -178,7 +164,6 @@
             gap: 1rem;
             margin-top: 2rem;
         }
-
         .gallery-item {
             position: relative;
             overflow: hidden;
@@ -186,7 +171,6 @@
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .gallery-item img {
             width: 100%;
             height: 200px;
@@ -195,16 +179,13 @@
             opacity: 0;
             transition: opacity 0.5s ease;
         }
-
         .gallery-item img.loaded {
             opacity: 1;
         }
-
         .gallery-item:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-
         .gallery-item::after {
             content: attr(data-caption);
             position: absolute;
@@ -219,11 +200,128 @@
             opacity: 0;
             transition: opacity 0.3s ease;
         }
-
         .gallery-item:hover::after {
             opacity: 1;
         }
+        /* Videos Section */
+        .videos-container {
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+        .video-post {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .video-post:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        .video-post img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px 8px 0 0;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .video-post img.loaded {
+            opacity: 1;
+        }
+        .video-post::before {
+            content: '▶';
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-size: 3rem;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 50%;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        .video-post:hover::before {
+            opacity: 1;
+        }
+        .video-post-content {
+            padding: 1.5rem;
+        }
+        .video-post h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1a3c5e;
+            margin-bottom: 0.5rem;
+        }
+        .video-post p {
+            font-size: 1rem;
+            color: #34495e;
+            margin-bottom: 0.5rem;
+        }
+        .video-post-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        .video-post-actions {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: #4a90e2;
+        }
+        .video-post-actions span {
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .video-post-actions span:hover {
+           
 
+            color: #357abd;
+        }
+        /* Members Section */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .member-item {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .member-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .member-item img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .member-item h4 {
+            font-size: 1.5rem;
+            color: #1a3c5e;
+            margin-bottom: 0.5rem;
+        }
+        .member-item .role {
+            font-size: 1rem;
+            color: #4a90e2;
+            margin-bottom: 0.5rem;
+        }
+        .member-item p {
+            font-size: 0.9rem;
+            color: #34495e;
+        }
         /* Lightbox */
         .lightbox {
             display: none;
@@ -237,20 +335,17 @@
             align-items: center;
             justify-content: center;
         }
-
-        .lightbox img {
+        .lightbox img, .lightbox iframe {
             max-width: 90%;
             max-height: 80%;
             border-radius: 8px;
         }
-
         .lightbox-caption {
             color: #fff;
             margin-top: 1rem;
             font-size: 1.1rem;
             text-align: center;
         }
-
         .lightbox-close {
             position: absolute;
             top: 20px;
@@ -260,11 +355,9 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .lightbox-close:hover {
             color: #4a90e2;
         }
-
         .lightbox-nav {
             position: absolute;
             top: 50%;
@@ -274,19 +367,15 @@
             cursor: pointer;
             transition: color 0.3s ease;
         }
-
         .lightbox-nav:hover {
             color: #4a90e2;
         }
-
         .lightbox-prev {
             left: 20px;
         }
-
         .lightbox-next {
             right: 20px;
         }
-
         /* Contact Form */
         .contact-form {
             display: flex;
@@ -295,7 +384,6 @@
             max-width: 600px;
             margin: 2rem auto;
         }
-
         .contact-form input, .contact-form textarea {
             padding: 0.8rem;
             border: 1px solid #ccc;
@@ -303,28 +391,24 @@
             font-size: 1rem;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
-
         .contact-form input:focus, .contact-form textarea:focus {
             outline: none;
             border-color: #4a90e2;
             box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
         }
-
         .contact-form button {
             padding: 0.8rem;
             background-color: #4a90e2;
             color: #fff;
             border: none;
             border-radius: 5px;
-            font-size: 1.1rem;
+            font-size: informasjon om koden1.1rem;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .contact-form button:hover {
             background-color: #357abd;
         }
-
         .form-message {
             display: none;
             margin-top: 1rem;
@@ -332,19 +416,16 @@
             border-radius: 5px;
             text-align: center;
         }
-
         .form-message.success {
             display: block;
             background-color: #dff0d8;
             color: #3c763d;
         }
-
         .form-message.error {
             display: block;
             background-color: #f2dede;
             color: #a94442;
         }
-
         /* Footer */
         footer {
             background: linear-gradient(90deg, #1a3c5e, #265780);
@@ -353,7 +434,6 @@
             padding: 2rem;
             width: 100%;
         }
-
         .footer-content {
             max-width: 1100px;
             margin: 0 auto;
@@ -363,7 +443,6 @@
             align-items: center;
             gap: 1rem;
         }
-
         .social-links a {
             color: #f4f7fa;
             margin: 0 0.5rem;
@@ -371,22 +450,18 @@
             text-decoration: none;
             transition: color 0.3s ease;
         }
-
         .social-links a:hover {
             color: #4a90e2;
         }
-
         .newsletter {
             display: flex;
         }
-
         .newsletter input {
             padding: 0.6rem;
             border: none;
             border-radius: 5px 0 0 5px;
             width: 200px;
         }
-
         .newsletter button {
             padding: 0.6rem 1rem;
             background-color: #4a90e2;
@@ -396,28 +471,23 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
         .newsletter button:hover {
             background-color: #357abd;
         }
-
         /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
-
         @keyframes slideUp {
             from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
         /* Responsive Design */
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
             }
-
             .navbar ul {
                 display: none;
                 flex-direction: column;
@@ -429,58 +499,76 @@
                 width: 100%;
                 padding: 1rem;
             }
-
             .navbar ul.active {
                 display: flex;
             }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
-
             .hero p {
                 font-size: 1.2rem;
             }
-
             .hero-button {
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
-
             .content h2 {
                 font-size: 2rem;
             }
-
+            .content h3 {
+                font-size: 1.5rem;
+            }
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
             }
-
-            .gallery-item img {
+            .gallery-item img, .video-post img, .member-item img {
                 height: 150px;
             }
+            .video-post {
+                margin-bottom: 1rem;
+            }
+            .video-post-content {
+                padding: 1rem;
+            }
+            .video-post h4 {
+                font-size: 1.2rem;
+            }
+            .video-post p {
+                font-size: 0.9rem;
+            }
         }
-
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
             }
-
             .hero p {
                 font-size: 1rem;
             }
-
             .content {
                 margin: 2rem 1rem;
                 padding: 1.5rem;
             }
-
+            .content h3 {
+                font-size: 1.3rem;
+            }
             .newsletter input {
                 width: 150px;
             }
-
-            .gallery-item img {
+            .gallery-item img, .video-post img, .member-item img {
                 height: 120px;
+            }
+            .video-post-content {
+                padding: 0.8rem;
+            }
+            .video-post h4 {
+                font-size: 1rem;
+            }
+            .video-post p {
+                font-size: 0.8rem;
+            }
+            .video-post-meta, .video-post-actions {
+                font-size: 0.8rem;
             }
         }
     </style>
@@ -494,11 +582,12 @@
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#activities">Activities</a></li>
+                <li><a href="#videos">Videos</a></li>
+                <li><a href="#members">Members</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Welcome to Fundamental Christian Church</h1>
@@ -506,13 +595,11 @@
             <a href="#services" class="hero-button">Discover Our Services</a>
         </div>
     </section>
-
     <section class="content" id="about">
         <h2>About Us</h2>
         <p>Fundamental Christian Church is a vibrant community committed to fostering spiritual growth and fellowship.</p>
         <p>Our mission is to inspire and support one another through meaningful worship, education, and outreach programs.</p>
     </section>
-
     <section class="content" id="services">
         <h2>Our Services</h2>
         <div class="services-grid">
@@ -530,7 +617,6 @@
             </div>
         </div>
     </section>
-
     <section class="content" id="activities">
         <h2>Our Activities</h2>
         <p>Explore the vibrant activities and events that bring our community together.</p>
@@ -561,12 +647,165 @@
             </div>
         </div>
     </section>
+    <section class="content" id="videos">
+        <h2>Our Videos</h2>
+        <p>Watch highlights from our services, events, and community outreach programs, organized by category.</p>
+        <h3>Worship Services</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Sunday Worship Service" data-video="https://www.youtube.com/embed/9C1BCAgu2I8">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop" alt="Sunday Worship Service">
+                <div class="video-post-content">
+                    <h4>Sunday Worship Service</h4>
+                    <p>Experience our heartfelt Sunday worship, filled with music and prayer.</p>
+                    <div class="video-post-meta">Posted on September 10, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3>Community Outreach</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
+                <div class="video-post-content">
+                    <h4>Community Outreach Highlights</h4>
+                    <p>Highlights from our community service initiatives, making a difference together.</p>
+                    <div class="video-post-meta">Posted on August 15, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+
+        <h3>Sunday Presentation</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
+                <div class="video-post-content">
+                    <h4>Community Outreach Highlights</h4>
+                    <p>Highlights from our community service initiatives, making a difference together.</p>
+                    <div class="video-post-meta">Posted on August 15, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
+                <div class="video-post-content">
+                    <h4>Community Outreach Highlights</h4>
+                    <p>Highlights from our community service initiatives, making a difference together.</p>
+                    <div class="video-post-meta">Posted on August 15, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
+                <div class="video-post-content">
+                    <h4>Community Outreach Highlights</h4>
+                    <p>Highlights from our community service initiatives, making a difference together.</p>
+                    <div class="video-post-meta">Posted on August 15, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h3>Youth Events</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Youth Worship Night" data-video="https://www.youtube.com/embed/1TkG0Y1Z-Zw">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Youth Worship Night">
+                <div class="video-post-content">
+                    <h4>Youth Worship Night</h4>
+                    <p>Join our youth in an inspiring night of worship and fellowship.</p>
+                    <div class="video-post-meta">Posted on July 20, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Church Retreat 2025" data-video="https://www.youtube.com/embed/5z3dZiXq5vM">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2070&auto=format&fit=crop" alt="Church Retreat 2025">
+                <div class="video-post-content">
+                    <h4>Church Retreat 2025</h4>
+                    <p>Relive the memorable moments from our annual church retreat.</p>
+                    <div class="video-post-meta">Posted on June 5, 2025</div>
+                    <div class="video-post-actions">
+                        <span>👍 Like</span>
+                        <span>💬 Comment</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="content" id="members">
+        <h2>Our Members</h2>
+        <p>Meet the dedicated individuals who lead and support our church community.</p>
+        <h3>Adult Members</h3>
+        <div class="members-grid">
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop" alt="Pastor Bonifacion Pejano">
+                <h4>Pastor Bonifacion Pejano</h4>
+                <div class="role">Lead Pastor</div>
+                <p>Pastor Bonifacion has led our congregation for over 15 years, guiding us with wisdom and faith.</p>
+            </div>
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1506794778202-6d6d8f215e6b?q=80&w=300&auto=format&fit=crop" alt="Emily Davis">
+                <h4>Emily Davis</h4>
+                <div class="role">Community Outreach Coordinator</div>
+                <p>Emily organizes our outreach programs, serving our community with compassion.</p>
+            </div>
+        </div>
+        <h3>Youth Members</h3>
+        <div class="members-grid">
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop" alt="John Ray Golanie">
+                <h4>John Ray Golanie</h4>
+                <div class="role">Youth Worship Leader</div>
+                <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
+            </div>
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1519085360753-afccb9907aa8?q=80&w=300&auto=format&fit=crop" alt="Michael Brown">
+                <h4>Michael Brown</h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
+            </div>
+        </div>
+        <h3>Kids Members</h3>
+        <div class="members-grid">
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop" alt="John Ray Golanie">
+                <h4>John Ray Golanie</h4>
+                <div class="role">Youth Worship Leader</div>
+                <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
+            </div>
+            <div class="member-item">
+                <img src="https://images.unsplash.com/photo-1519085360753-afccb9907aa8?q=80&w=300&auto=format&fit=crop" alt="Michael Brown">
+                <h4>Michael Brown</h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
+            </div>
+        </div>
+    </section>
     <section class="content" id="contact">
         <h2>Contact Us</h2>
         <p>Email: <a href="mailto:info@fundamentalchurch.org">info@fundamentalchurch.org</a></p>
         <p>Phone: <a href="tel:+5551234567">(555) 123-4567</a></p>
-        <p>Address: 123 Faith Road, Hometown, USA</p>
+        <p>Address: Manan ao ticad Bantayan Cebu</p>
         <form class="contact-form" id="contact-form">
             <input type="text" id="name" placeholder="Your Name" required aria-label="Name">
             <input type="email" id="email" placeholder="Your Email" required aria-label="Email">
@@ -575,15 +814,13 @@
             <div class="form-message" id="contact-message"></div>
         </form>
     </section>
-
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
         <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
-        <img id="lightbox-image" src="" alt="Lightbox Image">
+        <div id="lightbox-content"></div>
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
     </div>
-
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Fundamental Christian Church. All rights reserved.</p>
@@ -601,7 +838,6 @@
             </div>
         </div>
     </footer>
-
     <script>
         // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
@@ -609,7 +845,6 @@
         hamburger.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-
         // Smooth scrolling with debouncing
         let scrollTimeout;
         document.querySelectorAll('.navbar a').forEach(anchor => {
@@ -626,7 +861,6 @@
                 }
             });
         });
-
         // Active nav link highlighting with debouncing
         window.addEventListener('scroll', () => {
             clearTimeout(scrollTimeout);
@@ -634,14 +868,12 @@
                 const sections = document.querySelectorAll('section');
                 const navLinks = document.querySelectorAll('.navbar a');
                 let currentSection = '';
-
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 100;
                     if (window.scrollY >= sectionTop) {
                         currentSection = section.getAttribute('id');
                     }
                 });
-
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                     if (link.getAttribute('href').substring(1) === currentSection) {
@@ -650,9 +882,8 @@
                 });
             }, 100);
         });
-
         // Image loading
-        document.querySelectorAll('.gallery-item img').forEach(img => {
+        document.querySelectorAll('.gallery-item img, .video-post img').forEach(img => {
             img.addEventListener('load', () => {
                 img.classList.add('loaded');
             });
@@ -660,7 +891,6 @@
                 img.classList.add('loaded');
             }
         });
-
         // Contact form submission
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
@@ -668,7 +898,6 @@
             const email = document.getElementById('email').value.trim();
             const message = document.getElementById('message').value.trim();
             const contactMessage = document.getElementById('contact-message');
-
             if (name && email && message) {
                 contactMessage.textContent = 'Thank you for your message! We will get back to you soon.';
                 contactMessage.className = 'form-message success';
@@ -678,13 +907,11 @@
                 contactMessage.className = 'form-message error';
             }
         });
-
         // Newsletter form submission
         document.getElementById('newsletter-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = this.querySelector('input').value.trim();
             const newsletterMessage = document.getElementById('newsletter-message');
-
             if (email) {
                 newsletterMessage.textContent = 'Thank you for subscribing to our newsletter!';
                 newsletterMessage.className = 'form-message success';
@@ -694,51 +921,65 @@
                 newsletterMessage.className = 'form-message error';
             }
         });
-
-        // Lightbox functionality
+        // Lightbox functionality for images and videos
         const lightbox = document.getElementById('lightbox');
-        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxContent = document.getElementById('lightbox-content');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const lightboxClose = document.getElementById('lightbox-close');
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
         const galleryItems = document.querySelectorAll('.gallery-item');
+        const videoItems = document.querySelectorAll('.video-post');
+        const allMediaItems = [...galleryItems, ...videoItems];
         let currentIndex = 0;
-
         function updateLightbox(index) {
-            const item = galleryItems[index];
-            lightboxImage.src = item.querySelector('img').src;
+            const item = allMediaItems[index];
+            lightboxContent.innerHTML = '';
+            if (item.classList.contains('video-post')) {
+                const iframe = document.createElement('iframe');
+                iframe.src = item.getAttribute('data-video');
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                iframe.setAttribute('allowfullscreen', '');
+                lightboxContent.appendChild(iframe);
+            } else {
+                const img = document.createElement('img');
+                img.src = item.querySelector('img').src;
+                img.alt = 'Lightbox Image';
+                lightboxContent.appendChild(img);
+            }
             lightboxCaption.textContent = item.getAttribute('data-caption');
             currentIndex = index;
         }
-
         galleryItems.forEach((item, index) => {
             item.addEventListener('click', () => {
                 updateLightbox(index);
                 lightbox.style.display = 'flex';
             });
         });
-
+        videoItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateLightbox(index + galleryItems.length);
+                lightbox.style.display = 'flex';
+            });
+        });
         lightboxClose.addEventListener('click', () => {
             lightbox.style.display = 'none';
+            lightboxContent.innerHTML = '';
         });
-
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 lightbox.style.display = 'none';
+                lightboxContent.innerHTML = '';
             }
         });
-
         lightboxPrev.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            currentIndex = (currentIndex - 1 + allMediaItems.length) % allMediaItems.length;
             updateLightbox(currentIndex);
         });
-
         lightboxNext.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % galleryItems.length;
+            currentIndex = (currentIndex + 1) % allMediaItems.length;
             updateLightbox(currentIndex);
         });
-
         // Keyboard navigation for lightbox
         document.addEventListener('keydown', (e) => {
             if (lightbox.style.display === 'flex') {
