@@ -11,25 +11,25 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         }
         body {
-            line-height: 1.7;
-            background-color: #f5f6f5;
-            color: #333;
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #1c1e21;
         }
         /* Navigation Bar */
         .navbar {
-            background: linear-gradient(90deg, #1a3c5e, #265780);
-            padding: 1.5rem;
+            background-color: #1877f2;
+            padding: 1rem;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         .navbar-container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -38,28 +38,29 @@
         .navbar ul {
             list-style: none;
             display: flex;
-            gap: 3rem;
+            gap: 1.5rem;
         }
         .navbar a {
-            color: #f4f7fa;
+            color: #fff;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 400;
-            transition: color 0.3s ease;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
         }
         .navbar a:hover, .navbar a.active {
-            color: #4a90e2;
-            border-bottom: 2px solid #4a90e2;
+            background-color: #165eab;
         }
         .hamburger {
             display: none;
-            font-size: 1.8rem;
-            color: #f4f7fa;
+            font-size: 1.5rem;
+            color: #fff;
             cursor: pointer;
         }
         /* Hero Section */
         .hero {
-            height: 100vh;
+            height: 80vh;
             background: url('fcc.jpg') no-repeat center center/cover;
             display: flex;
             align-items: center;
@@ -75,116 +76,122 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
         }
         .hero-content {
-            background: rgba(0, 0, 0, 0.65);
-            padding: 3rem;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 10px;
             position: relative;
             z-index: 1;
-            animation: fadeIn 1.2s ease-in-out;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            animation: fadeIn 1s ease-in-out;
         }
         .hero h1 {
-            font-size: 3.8rem;
+            font-size: 2.8rem;
             font-weight: 700;
-            margin-bottom: 1.5rem;
+            color: #1c1e21;
+            margin-bottom: 1rem;
         }
         .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 1.5rem;
         }
         .hero-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background-color: #4a90e2;
+            padding: 0.8rem 2rem;
+            background-color: #1877f2;
             color: #fff;
             text-decoration: none;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 400;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
         .hero-button:hover {
-            background-color: #357abd;
-            transform: translateY(-3px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color: #165eab;
+            transform: translateY(-2px);
         }
         /* Content Sections */
         .content {
-            max-width: 1100px;
-            margin: 4rem auto;
+            max-width: 1200px;
+            margin: 3rem auto;
             padding: 2rem;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            animation: slideUp 0.8s ease-in;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.6s ease-in;
         }
         .content h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #1a3c5e;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1c1e21;
+            margin-bottom: 1rem;
             text-align: center;
         }
         .content h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #1a3c5e;
-            margin: 2rem 0 1rem;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1c1e21;
+            margin: 1.5rem 0 1rem;
             text-align: center;
         }
         .content p {
-            font-size: 1.1rem;
-            color: #34495e;
+            font-size: 1rem;
+            color: #606770;
             margin-bottom: 1rem;
         }
         /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         .service-item {
-            background: #f9f9f9;
+            background: #fff;
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         /* Gallery Section */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
         .gallery-item {
             position: relative;
             overflow: hidden;
-            border-radius: 8px;
+            border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .gallery-item img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             display: block;
+            border-radius: 10px;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
         }
         .gallery-item img.loaded {
             opacity: 1;
         }
         .gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         .gallery-item::after {
             content: attr(data-caption);
@@ -192,9 +199,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.7);
             color: #fff;
-            padding: 0.5rem;
+            padding: 0.8rem;
             text-align: center;
             font-size: 0.9rem;
             opacity: 0;
@@ -205,29 +212,29 @@
         }
         /* Videos Section */
         .videos-container {
-            max-width: 700px;
-            margin: 2rem auto;
+            max-width: 800px;
+            margin: 1.5rem auto;
         }
         .video-post {
             background: #fff;
-            border-radius: 8px;
+            border-radius: 10px;
             margin-bottom: 1.5rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             cursor: pointer;
         }
         .video-post:hover {
             transform: scale(1.02);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         .video-post img {
             width: 100%;
             height: 300px;
             object-fit: cover;
             display: block;
-            border-radius: 8px 8px 0 0;
+            border-radius: 10px 10px 0 0;
             opacity: 0;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.4s ease;
         }
         .video-post img.loaded {
             opacity: 1;
@@ -239,12 +246,12 @@
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
-            font-size: 3rem;
+            font-size: 2.5rem;
             background: rgba(0, 0, 0, 0.5);
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 50%;
             opacity: 0.8;
-            transition: opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
         .video-post:hover::before {
             opacity: 1;
@@ -253,74 +260,60 @@
             padding: 1.5rem;
         }
         .video-post h4 {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1a3c5e;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1c1e21;
             margin-bottom: 0.5rem;
         }
         .video-post p {
-            font-size: 1rem;
-            color: #34495e;
+            font-size: 0.9rem;
+            color: #606770;
             margin-bottom: 0.5rem;
         }
         .video-post-meta {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.8rem;
+            color: #606770;
             margin-bottom: 0.5rem;
-        }
-        .video-post-actions {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.9rem;
-            color: #4a90e2;
-        }
-        .video-post-actions span {
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .video-post-actions span:hover {
-           
-
-            color: #357abd;
         }
         /* Members Section */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         .member-item {
-            background: #f9f9f9;
+            background: #fff;
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
         .member-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
         .member-item img {
-            width: 150px;
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 1rem;
         }
         .member-item h4 {
-            font-size: 1.5rem;
-            color: #1a3c5e;
+            font-size: 1.4rem;
+            color: #1c1e21;
             margin-bottom: 0.5rem;
         }
         .member-item .role {
-            font-size: 1rem;
-            color: #4a90e2;
+            font-size: 0.9rem;
+            color: #1877f2;
             margin-bottom: 0.5rem;
         }
         .member-item p {
             font-size: 0.9rem;
-            color: #34495e;
+            color: #606770;
         }
         /* Lightbox */
         .lightbox {
@@ -330,7 +323,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 2000;
             align-items: center;
             justify-content: center;
@@ -338,25 +331,26 @@
         .lightbox img, .lightbox iframe {
             max-width: 90%;
             max-height: 80%;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         .lightbox-caption {
             color: #fff;
             margin-top: 1rem;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-align: center;
         }
         .lightbox-close {
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             color: #fff;
-            font-size: 2rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         .lightbox-close:hover {
-            color: #4a90e2;
+            color: #1877f2;
         }
         .lightbox-nav {
             position: absolute;
@@ -365,16 +359,16 @@
             color: #fff;
             font-size: 2rem;
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         .lightbox-nav:hover {
-            color: #4a90e2;
+            color: #1877f2;
         }
         .lightbox-prev {
-            left: 20px;
+            left: 15px;
         }
         .lightbox-next {
-            right: 20px;
+            right: 15px;
         }
         /* Contact Form */
         .contact-form {
@@ -383,104 +377,107 @@
             gap: 1rem;
             max-width: 600px;
             margin: 2rem auto;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
         .contact-form input, .contact-form textarea {
             padding: 0.8rem;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: border-color 0.2s ease;
         }
         .contact-form input:focus, .contact-form textarea:focus {
             outline: none;
-            border-color: #4a90e2;
-            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+            border-color: #1877f2;
         }
         .contact-form button {
             padding: 0.8rem;
-            background-color: #4a90e2;
+            background-color: #1877f2;
             color: #fff;
             border: none;
-            border-radius: 5px;
-            font-size: informasjon om koden1.1rem;
+            border-radius: 6px;
+            font-size: 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.2s ease;
         }
         .contact-form button:hover {
-            background-color: #357abd;
+            background-color: #165eab;
         }
         .form-message {
             display: none;
             margin-top: 1rem;
             padding: 0.8rem;
-            border-radius: 5px;
+            border-radius: 6px;
             text-align: center;
         }
         .form-message.success {
             display: block;
-            background-color: #dff0d8;
-            color: #3c763d;
+            background-color: #e7f3e9;
+            color: #2e7d32;
         }
         .form-message.error {
             display: block;
-            background-color: #f2dede;
-            color: #a94442;
+            background-color: #fdeded;
+            color: #d32f2f;
         }
         /* Footer */
         footer {
-            background: linear-gradient(90deg, #1a3c5e, #265780);
-            color: #f4f7fa;
-            text-align: center;
+            background-color: #1c1e21;
+            color: #fff;
             padding: 2rem;
             width: 100%;
         }
         .footer-content {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
+            gap: 1.5rem;
         }
         .social-links a {
-            color: #f4f7fa;
-            margin: 0 0.5rem;
-            font-size: 1.2rem;
+            color: #fff;
+            margin: 0 0.8rem;
+            font-size: 1rem;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
         .social-links a:hover {
-            color: #4a90e2;
+            color: #1877f2;
         }
         .newsletter {
             display: flex;
         }
         .newsletter input {
-            padding: 0.6rem;
+            padding: 0.8rem;
             border: none;
-            border-radius: 5px 0 0 5px;
-            width: 200px;
+            border-radius: 6px 0 0 6px;
+            width: 220px;
+            font-size: 1rem;
         }
         .newsletter button {
-            padding: 0.6rem 1rem;
-            background-color: #4a90e2;
+            padding: 0.8rem 1.2rem;
+            background-color: #1877f2;
             color: #fff;
             border: none;
-            border-radius: 0 5px 5px 0;
+            border-radius: 0 6px 6px 0;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.2s ease;
         }
         .newsletter button:hover {
-            background-color: #357abd;
+            background-color: #165eab;
         }
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
+            from { opacity: 0; transform: scale(0.98); }
             to { opacity: 1; transform: scale(1); }
         }
         @keyframes slideUp {
-            from { transform: translateY(30px); opacity: 0; }
+            from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
         /* Responsive Design */
@@ -491,8 +488,8 @@
             .navbar ul {
                 display: none;
                 flex-direction: column;
-                gap: 1.5rem;
-                background: #1a3c5e;
+                gap: 1rem;
+                background: #1877f2;
                 position: absolute;
                 top: 60px;
                 left: 0;
@@ -503,30 +500,27 @@
                 display: flex;
             }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             .hero p {
-                font-size: 1.2rem;
-            }
-            .hero-button {
-                padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
+            .hero-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
             .content h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .content h3 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             .footer-content {
                 flex-direction: column;
                 gap: 1.5rem;
             }
             .gallery-item img, .video-post img, .member-item img {
-                height: 150px;
-            }
-            .video-post {
-                margin-bottom: 1rem;
+                height: 180px;
             }
             .video-post-content {
                 padding: 1rem;
@@ -535,28 +529,28 @@
                 font-size: 1.2rem;
             }
             .video-post p {
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
         }
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             .hero p {
-                font-size: 1rem;
+                font-size: 0.9rem;
             }
             .content {
                 margin: 2rem 1rem;
                 padding: 1.5rem;
             }
             .content h3 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             .newsletter input {
-                width: 150px;
+                width: 160px;
             }
             .gallery-item img, .video-post img, .member-item img {
-                height: 120px;
+                height: 140px;
             }
             .video-post-content {
                 padding: 0.8rem;
@@ -565,10 +559,10 @@
                 font-size: 1rem;
             }
             .video-post p {
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             }
-            .video-post-meta, .video-post-actions {
-                font-size: 0.8rem;
+            .video-post-meta {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -622,46 +616,50 @@
         <p>Explore the vibrant activities and events that bring our community together.</p>
         <div class="gallery-grid">
             <div class="gallery-item" data-caption="Community Picnic">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070&auto=format&fit=crop" alt="Community Picnic">
+                <img src="" alt="Community Picnic">
             </div>
             <div class="gallery-item" data-caption="Youth Group Event">
-                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Youth Group Event">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Charity Drive">
-                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7ef0?q=80&w=2070&auto=format&fit=crop" alt="Charity Drive">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Worship Night">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop" alt="Worship Night">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Family Retreat">
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2070&auto=format&fit=crop" alt="Family Retreat">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Prayer Meeting">
-                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop" alt="Prayer Meeting">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Volunteer Day">
-                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Volunteer Day">
+                <img src="" alt="Content Under Contstruction">
             </div>
             <div class="gallery-item" data-caption="Holiday Celebration">
-                <img src="https://images.unsplash.com/photo-1608240549716-4b8b9d5df07c?q=80&w=2070&auto=format&fit=crop" alt="Holiday Celebration">
+                <img src="" alt="Content Under Contstruction">
             </div>
         </div>
     </section>
     <section class="content" id="videos">
         <h2>Our Videos</h2>
-        <p>Watch highlights from our services, events, and community outreach programs, organized by category.</p>
-        <h3>Worship Services</h3>
+        <p>Watch highlights from our services, outreach programs, and youth events.</p>
+        <h3>Sunday Presentation</h3>
         <div class="videos-container">
-            <div class="video-post" data-caption="Sunday Worship Service" data-video="https://www.youtube.com/embed/9C1BCAgu2I8">
-                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop" alt="Sunday Worship Service">
+            <div class="video-post" data-caption="Sunday Worship Service" data-video="https://www.youtube.com/bed/9C1BCAgu2I8">
+                <img src="" alt="Sunday Worship Service">
                 <div class="video-post-content">
                     <h4>Sunday Worship Service</h4>
                     <p>Experience our heartfelt Sunday worship, filled with music and prayer.</p>
                     <div class="video-post-meta">Posted on September 10, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Sunday Sermon Highlights" data-video="https:w.youte.com/embed/3z-MvU3H7y8">
+                <img src="" alt="Sunday Sermon Highlights">
+                <div class="video-post-content">
+                    <h4>Sunday Sermon Highlights</h4>
+                    <p>Key moments from our latest Sunday sermon, inspiring faith and reflection.</p>
+                    <div class="video-post-meta">Posted on September 3, 2025</div>
                 </div>
             </div>
         </div>
@@ -673,81 +671,33 @@
                     <h4>Community Outreach Highlights</h4>
                     <p>Highlights from our community service initiatives, making a difference together.</p>
                     <div class="video-post-meta">Posted on August 15, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Charity Drive Recap" data-video="">
+                <img src="" alt="Charity Drive Recap">
+                <div class="video-post-content">
+                    <h4>Charity Drive Recap</h4>
+                    <p>A look back at our recent charity drive, supporting those in need.</p>
+                    <div class="video-post-meta">Posted on July 25, 2025</div>
                 </div>
             </div>
         </div>
-
-
-        <h3>Sunday Presentation</h3>
-        <div class="videos-container">
-            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
-                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
-                <div class="video-post-content">
-                    <h4>Community Outreach Highlights</h4>
-                    <p>Highlights from our community service initiatives, making a difference together.</p>
-                    <div class="video-post-meta">Posted on August 15, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
-                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
-                <div class="video-post-content">
-                    <h4>Community Outreach Highlights</h4>
-                    <p>Highlights from our community service initiatives, making a difference together.</p>
-                    <div class="video-post-meta">Posted on August 15, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="video-post" data-caption="Community Outreach Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
-                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
-                <div class="video-post-content">
-                    <h4>Community Outreach Highlights</h4>
-                    <p>Highlights from our community service initiatives, making a difference together.</p>
-                    <div class="video-post-meta">Posted on August 15, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <h3>Youth Events</h3>
         <div class="videos-container">
             <div class="video-post" data-caption="Youth Worship Night" data-video="https://www.youtube.com/embed/1TkG0Y1Z-Zw">
-                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Youth Worship Night">
+                <img src="" alt="Under Development">
                 <div class="video-post-content">
                     <h4>Youth Worship Night</h4>
                     <p>Join our youth in an inspiring night of worship and fellowship.</p>
                     <div class="video-post-meta">Posted on July 20, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
                 </div>
             </div>
-            <div class="video-post" data-caption="Church Retreat 2025" data-video="https://www.youtube.com/embed/5z3dZiXq5vM">
-                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2070&auto=format&fit=crop" alt="Church Retreat 2025">
+            <div class="video-post" data-caption="Church Retreat 2025" data-video="">
+                <img src="" alt="Under Development">
                 <div class="video-post-content">
                     <h4>Church Retreat 2025</h4>
                     <p>Relive the memorable moments from our annual church retreat.</p>
                     <div class="video-post-meta">Posted on June 5, 2025</div>
-                    <div class="video-post-actions">
-                        <span>👍 Like</span>
-                        <span>💬 Comment</span>
-                    </div>
                 </div>
             </div>
         </div>
@@ -758,14 +708,14 @@
         <h3>Adult Members</h3>
         <div class="members-grid">
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=300&auto=format&fit=crop" alt="Pastor Bonifacion Pejano">
+                <img src="" alt="Pastor Bonifacion Pejano">
                 <h4>Pastor Bonifacion Pejano</h4>
                 <div class="role">Lead Pastor</div>
                 <p>Pastor Bonifacion has led our congregation for over 15 years, guiding us with wisdom and faith.</p>
             </div>
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1506794778202-6d6d8f215e6b?q=80&w=300&auto=format&fit=crop" alt="Emily Davis">
-                <h4>Emily Davis</h4>
+                <img src="" alt="Erlinda Pejano">
+                <h4>Erlinda Pejano</h4>
                 <div class="role">Community Outreach Coordinator</div>
                 <p>Emily organizes our outreach programs, serving our community with compassion.</p>
             </div>
@@ -773,29 +723,38 @@
         <h3>Youth Members</h3>
         <div class="members-grid">
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop" alt="John Ray Golanie">
+                <img src="" alt="John Ray Golanie">
                 <h4>John Ray Golanie</h4>
                 <div class="role">Youth Worship Leader</div>
                 <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
             </div>
+
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1519085360753-afccb9907aa8?q=80&w=300&auto=format&fit=crop" alt="Michael Brown">
-                <h4>Michael Brown</h4>
+                <img src="" alt="Jonel Gapor">
+                <h4>Jonel Gapor</h4>
                 <div class="role">Youth Pastor</div>
                 <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
             </div>
+
+             <div class="member-item">
+                <img src="" alt="Martha P Samanero">
+                <h4>Martha P Samanero</h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
+            </div>
+
         </div>
         <h3>Kids Members</h3>
         <div class="members-grid">
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=300&auto=format&fit=crop" alt="John Ray Golanie">
-                <h4>John Ray Golanie</h4>
+                <img src="" alt="Not Added yet">
+                <h4></h4>
                 <div class="role">Youth Worship Leader</div>
                 <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
             </div>
             <div class="member-item">
-                <img src="https://images.unsplash.com/photo-1519085360753-afccb9907aa8?q=80&w=300&auto=format&fit=crop" alt="Michael Brown">
-                <h4>Michael Brown</h4>
+                <img src="" alt="Not Added yet">
+                <h4></h4>
                 <div class="role">Youth Pastor</div>
                 <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
             </div>
@@ -803,8 +762,8 @@
     </section>
     <section class="content" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:info@fundamentalchurch.org">info@fundamentalchurch.org</a></p>
-        <p>Phone: <a href="tel:+5551234567">(555) 123-4567</a></p>
+        <p>Email: <a href="mailto:info@fundamentalchurch.org" style="color: #1877f2;">info@fundamentalchurch.org</a></p>
+        <p>Phone: <a href="tel:+5551234567" style="color: #1877f2;">(555) 123-4567</a></p>
         <p>Address: Manan ao ticad Bantayan Cebu</p>
         <form class="contact-form" id="contact-form">
             <input type="text" id="name" placeholder="Your Name" required aria-label="Name">
@@ -853,7 +812,7 @@
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
                 window.scrollTo({
-                    top: targetSection.offsetTop - 70,
+                    top: targetSection.offsetTop - 60,
                     behavior: 'smooth'
                 });
                 if (window.innerWidth <= 768) {
@@ -869,7 +828,7 @@
                 const navLinks = document.querySelectorAll('.navbar a');
                 let currentSection = '';
                 sections.forEach(section => {
-                    const sectionTop = section.offsetTop - 100;
+                    const sectionTop = section.offsetTop - 80;
                     if (window.scrollY >= sectionTop) {
                         currentSection = section.getAttribute('id');
                     }
@@ -883,7 +842,7 @@
             }, 100);
         });
         // Image loading
-        document.querySelectorAll('.gallery-item img, .video-post img').forEach(img => {
+        document.querySelectorAll('.gallery-item img, .video-post img, .member-item img').forEach(img => {
             img.addEventListener('load', () => {
                 img.classList.add('loaded');
             });
