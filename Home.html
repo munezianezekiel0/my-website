@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta name="description" content="Welcome to Fundamental Christian Church, a community dedicated to faith, worship, and outreach." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Fundamental Christian Church, a community dedicated to faith, worship, and outreach.">
     <title>Fundamental Christian Church</title>
-
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif; }
-        body { line-height: 1.6; background-color: #f0f2f5; color: #1c1e21; }
-
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #1c1e21;
+        }
         /* Navigation Bar */
         .navbar {
             background-color: #1877f2;
@@ -20,123 +26,528 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .navbar-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .navbar ul { list-style: none; display: flex; gap: 1.5rem; }
-        .navbar a { color: #fff; text-decoration: none; font-size: 1rem; font-weight: 500; padding: 0.5rem 1rem; border-radius: 6px; transition: background-color 0.2s; }
-        .navbar a:hover, .navbar a.active { background-color: #165eab; }
-        .hamburger { display: none; font-size: 1.5rem; color: #fff; cursor: pointer; }
-
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: background-color 0.2s ease;
+        }
+        .navbar a:hover, .navbar a.active {
+            background-color: #165eab;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
         /* Hero Section */
         .hero {
             height: 80vh;
             background: url('fcc.jpg') no-repeat center center/cover;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
         }
-        .hero::before { content: ''; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
         .hero-content {
-            background: rgba(255,255,255,0.9);
+            background: rgba(255, 255, 255, 0.9);
             padding: 2.5rem;
             border-radius: 10px;
             position: relative;
             z-index: 1;
             max-width: 600px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             animation: fadeIn 1s ease-in-out;
         }
-        .hero h1 { font-size: 2.8rem; font-weight: 700; color: #1c1e21; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; color: #34495e; margin-bottom: 1.5rem; }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #1c1e21;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+        }
         .hero-button {
-            display:inline-block; padding:0.8rem 2rem; background-color:#1877f2; color:#fff; text-decoration:none; border-radius:6px;
-            font-size:1.1rem; font-weight:500; transition: background-color 0.2s, transform 0.2s;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: #1877f2;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
-        .hero-button:hover { background-color:#165eab; transform: translateY(-2px); }
-
+        .hero-button:hover {
+            background-color: #165eab;
+            transform: translateY(-2px);
+        }
         /* Content Sections */
-        .content { max-width: 1200px; margin: 3rem auto; padding: 2rem; background:#fff; border-radius:10px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); animation: slideUp 0.6s ease-in; }
-        .content h2 { font-size:2.2rem; font-weight:600; color:#1c1e21; margin-bottom:1rem; text-align:center; }
-        .content h3 { font-size:1.6rem; font-weight:500; color:#1c1e21; margin:1.5rem 0 1rem; text-align:center; }
-        .content p { font-size:1rem; color:#606770; margin-bottom:1rem; }
-
-        /* Services / Gallery / Members */
-        .services-grid, .gallery-grid, .members-grid { display: grid; gap:1.5rem; }
-        .services-grid { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); margin-top:1.5rem; }
-        .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); margin-top:1.5rem; }
-        .members-grid { grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); margin-top:1.5rem; }
-
-        .service-item, .gallery-item, .member-item {
-            background:#fff; padding:1.5rem; border-radius:10px; text-align:center; box-shadow:0 2px 6px rgba(0,0,0,0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
+        .content {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            animation: slideUp 0.6s ease-in;
         }
-        .service-item:hover, .gallery-item:hover, .member-item:hover { transform: translateY(-3px); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-
-        .gallery-item img, .video-post img, .member-item img {
-            width: 100%; height: 220px; object-fit: cover; display: block; border-radius: 10px; opacity: 0; transition: opacity 0.4s;
+        .content h2 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: #1c1e21;
+            margin-bottom: 1rem;
+            text-align: center;
         }
-        .gallery-item img.loaded, .video-post img.loaded, .member-item img.loaded { opacity: 1; }
-
+        .content h3 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1c1e21;
+            margin: 1.5rem 0 1rem;
+            text-align: center;
+        }
+        .content p {
+            font-size: 1rem;
+            color: #606770;
+            margin-bottom: 1rem;
+        }
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .service-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .service-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item img.loaded {
+            opacity: 1;
+        }
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
         .gallery-item::after {
             content: attr(data-caption);
-            position: absolute; bottom:0; left:0; right:0;
-            background: rgba(0,0,0,0.7); color:#fff; padding:0.8rem; text-align:center; font-size:0.9rem; opacity:0; transition: opacity 0.3s;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .gallery-item:hover::after { opacity:1; }
-
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
         /* Videos Section */
-        .videos-container { max-width: 1000px; margin: 1.5rem auto; }
-        .video-post {
-            background:#fff; border-radius:10px; margin-bottom:1.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.2s;
-            overflow: hidden;
+        .videos-container {
+            max-width: 800px;
+            margin: 1.5rem auto;
         }
-        .video-post:hover { transform: scale(1.02); box-shadow:0 4px 12px rgba(0,0,0,0.15); }
-        .video-post img { width:100%; height:300px; object-fit:cover; display:block; border-radius:10px 10px 0 0; }
-        .video-post video { width:100%; height:auto; display:block; border-radius:10px 10px 0 0; background: #000; }
-
-        .video-post-content { padding: 1.5rem; }
-        .video-post h4 { font-size:1.3rem; font-weight:500; color:#1c1e21; margin-bottom:0.5rem; }
-        .video-post p { font-size:0.9rem; color:#606770; margin-bottom:0.5rem; }
-        .video-post-meta { font-size:0.8rem; color:#606770; margin-bottom:0.5rem; }
-
+        .video-post {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .video-post:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .video-post img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px 10px 0 0;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .video-post img.loaded {
+            opacity: 1;
+        }
+        
+        .video-post-content {
+            padding: 1.5rem;
+        }
+        .video-post h4 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #1c1e21;
+            margin-bottom: 0.5rem;
+        }
+        .video-post p {
+            font-size: 0.9rem;
+            color: #606770;
+            margin-bottom: 0.5rem;
+        }
+        .video-post-meta {
+            font-size: 0.8rem;
+            color: #606770;
+            margin-bottom: 0.5rem;
+        }
+        /* Members Section */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .member-item {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .member-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+        .member-item img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .member-item h4 {
+            font-size: 1.4rem;
+            color: #1c1e21;
+            margin-bottom: 0.5rem;
+        }
+        .member-item .role {
+            font-size: 0.9rem;
+            color: #1877f2;
+            margin-bottom: 0.5rem;
+        }
+        .member-item p {
+            font-size: 0.9rem;
+            color: #606770;
+        }
         /* Lightbox */
         .lightbox {
-            display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8);
-            z-index:2000; align-items:center; justify-content:center; padding: 2rem;
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
         }
-        .lightbox-content { max-width: 90%; max-height: 80%; display:flex; align-items:center; justify-content:center; }
-        .lightbox img, .lightbox iframe, .lightbox video { max-width: 100%; max-height: 100%; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.2); }
-        .lightbox-caption { color:#fff; margin-top:1rem; font-size:1rem; text-align:center; }
-        .lightbox-close { position:absolute; top:15px; right:15px; color:#fff; font-size:1.8rem; cursor:pointer; transition:color 0.2s; }
-        .lightbox-close:hover { color:#1877f2; }
-        .lightbox-nav { position:absolute; top:50%; transform:translateY(-50%); color:#fff; font-size:2rem; cursor:pointer; transition:color 0.2s; }
-        .lightbox-prev { left:15px; } .lightbox-next { right:15px; }
-        .lightbox-nav:hover { color:#1877f2; }
-
-        /* Contact Form / Footer etc kept same but trimmed for brevity in CSS area */
-        .contact-form { display:flex; flex-direction:column; gap:1rem; max-width:600px; margin:2rem auto; background:#fff; padding:1.5rem; border-radius:10px; }
-        .contact-form input, .contact-form textarea { padding:0.8rem; border:1px solid #ddd; border-radius:6px; font-size:1rem; }
-        .contact-form button { padding:0.8rem; background-color:#1877f2; color:#fff; border:none; border-radius:6px; cursor:pointer; }
-
-        footer { background-color:#1c1e21; color:#fff; padding:2rem; width:100%; }
-        .footer-content { max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:1.5rem; }
-
-        /* Hide big overlay play button for webkit browsers (Chrome, Edge, Safari) */
-        video::-webkit-media-controls-overlay-play-button { display: none !important; }
-
-        /* Animations and responsive rules */
-        @keyframes fadeIn { from { opacity:0; transform:scale(0.98);} to { opacity:1; transform:scale(1);} }
-        @keyframes slideUp { from { transform: translateY(20px); opacity:0; } to { transform: translateY(0); opacity:1; } }
-
+        .lightbox img, .lightbox iframe {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .lightbox-caption {
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 1rem;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: #fff;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .lightbox-close:hover {
+            color: #1877f2;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .lightbox-nav:hover {
+            color: #1877f2;
+        }
+        .lightbox-prev {
+            left: 15px;
+        }
+        .lightbox-next {
+            right: 15px;
+        }
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s ease;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #1877f2;
+        }
+        .contact-form button {
+            padding: 0.8rem;
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .contact-form button:hover {
+            background-color: #165eab;
+        }
+        .form-message {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 6px;
+            text-align: center;
+        }
+        .form-message.success {
+            display: block;
+            background-color: #e7f3e9;
+            color: #2e7d32;
+        }
+        .form-message.error {
+            display: block;
+            background-color: #fdeded;
+            color: #d32f2f;
+        }
+        /* Footer */
+        footer {
+            background-color: #1c1e21;
+            color: #fff;
+            padding: 2rem;
+            width: 100%;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .social-links a {
+            color: #fff;
+            margin: 0 0.8rem;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .social-links a:hover {
+            color: #1877f2;
+        }
+        .newsletter {
+            display: flex;
+        }
+        .newsletter input {
+            padding: 0.8rem;
+            border: none;
+            border-radius: 6px 0 0 6px;
+            width: 220px;
+            font-size: 1rem;
+        }
+        .newsletter button {
+            padding: 0.8rem 1.2rem;
+            background-color: #1877f2;
+            color: #fff;
+            border: none;
+            border-radius: 0 6px 6px 0;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .newsletter button:hover {
+            background-color: #165eab;
+        }
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hamburger { display:block; }
-            .navbar ul { display:none; flex-direction:column; gap:1rem; background:#1877f2; position:absolute; top:60px; left:0; width:100%; padding:1rem; }
-            .navbar ul.active { display:flex; }
-            .hero h1 { font-size:2.2rem; } .hero p { font-size:1rem; }
-            .gallery-item img, .video-post img, .member-item img { height:180px; }
+            .hamburger {
+                display: block;
+            }
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                gap: 1rem;
+                background: #1877f2;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+            }
+            .navbar ul.active {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .hero-button {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+            .content h2 {
+                font-size: 1.8rem;
+            }
+            .content h3 {
+                font-size: 1.4rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            .gallery-item img, .video-post img, .member-item img {
+                height: 180px;
+            }
+            .video-post-content {
+                padding: 1rem;
+            }
+            .video-post h4 {
+                font-size: 1.2rem;
+            }
+            .video-post p {
+                font-size: 0.8rem;
+            }
         }
         @media (max-width: 480px) {
-            .hero h1 { font-size:1.8rem; } .hero p { font-size:0.9rem; }
-            .gallery-item img, .video-post img, .member-item img { height:140px; }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .content {
+                margin: 2rem 1rem;
+                padding: 1.5rem;
+            }
+            .content h3 {
+                font-size: 1.2rem;
+            }
+            .newsletter input {
+                width: 160px;
+            }
+            .gallery-item img, .video-post img, .member-item img {
+                height: 140px;
+            }
+            .video-post-content {
+                padding: 0.8rem;
+            }
+            .video-post h4 {
+                font-size: 1rem;
+            }
+            .video-post p {
+                font-size: 0.7rem;
+            }
+            .video-post-meta {
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
@@ -155,7 +566,6 @@
             </ul>
         </div>
     </nav>
-
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Welcome to Fundamental Christian Church</h1>
@@ -163,13 +573,11 @@
             <a href="#services" class="hero-button">Discover Our Services</a>
         </div>
     </section>
-
     <section class="content" id="about">
         <h2>About Us</h2>
         <p>Fundamental Christian Church is a vibrant community committed to fostering spiritual growth and fellowship.</p>
         <p>Our mission is to inspire and support one another through meaningful worship, education, and outreach programs.</p>
     </section>
-
     <section class="content" id="services">
         <h2>Our Services</h2>
         <div class="services-grid">
@@ -187,69 +595,55 @@
             </div>
         </div>
     </section>
-
     <section class="content" id="activities">
         <h2>Our Activities</h2>
         <p>Explore the vibrant activities and events that bring our community together.</p>
-
         <div class="gallery-grid">
             <div class="gallery-item" data-caption="Community Picnic">
-                <img src="" alt="Community Picnic" />
+                <img src="" alt="Community Picnic">
             </div>
             <div class="gallery-item" data-caption="Youth Group Event">
-                <img src="" alt="Youth Group Event" />
+                <img src="" alt="Content Under Contstruction">
             </div>
-            <!-- ...other gallery items -->
+            <div class="gallery-item" data-caption="Charity Drive">
+                <img src="" alt="Content Under Contstruction">
+            </div>
+            <div class="gallery-item" data-caption="Worship Night">
+                <img src="" alt="Content Under Contstruction">
+            </div>
+            <div class="gallery-item" data-caption="Family Retreat">
+                <img src="" alt="Content Under Contstruction">
+            </div>
+            <div class="gallery-item" data-caption="Prayer Meeting">
+                <img src="" alt="Content Under Contstruction">
+            </div>
+            <div class="gallery-item" data-caption="Volunteer Day">
+                <img src="" alt="Content Under Contstruction">
+            </div>
+            <div class="gallery-item" data-caption="Holiday Celebration">
+                <img src="" alt="Content Under Contstruction">
+            </div>
         </div>
     </section>
-
     <section class="content" id="videos">
-        <h2>Our Videos</h2>
-        <p>Watch highlights from our services, outreach programs, and youth events.</p>
 
-        <!-- Featured single video (full-width) -->
-        <div class="videos-container">
-            <div class="video-post" data-caption="Jeremiah 29:11" data-video="videos/Default/verse.mp4">
-                <video controls>
-                    <source src="videos/Default/verse.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-post-content">
-                    <h4>Jeremiah 29:11</h4>
-                    <p>“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”</p>
-                    <div class="video-post-meta">Posted on September 28, 2025</div>
-                </div>
-            </div>
-        </div>
+         <div class="videos-container">
+            <div class="video-post">
+           <video controls width="270">
+        <source src="videos/Default/verse.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+            </video>
+    <div class="video-post-content">
+        <h4>Jeremiah 29:11</h4>
+        <p>“For I know the plans I have for you,” declares the Lord, “plans to prosper you and not to harm you, plans to give you hope and a future.”</p>
+<div class="video-post-meta">Posted on September 28, 2025</div>
 
-        <h3>Street Preaching</h3>
-        <div class="videos-container">
-            <div class="video-post" data-caption="Street Preaching at Bantayan Market" data-video="videos/Preaching/V1.mp4">
-                <video controls>
-                    <source src="videos/Preaching/V1.mp4" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-post-content">
-                    <h4>Street Preaching at Bantayan Market</h4>
-                    <p>Sharing God’s Word with the community at Bantayan Market. A time of faith, encouragement, and public ministry.</p>
-                    <div class="video-post-meta">Posted on September 10, 2025</div>
-                </div>
-            </div>
-        </div>
+    </div>
+</div>
 
-        <h3>Sunday Presentation</h3>
-        <div class="videos-container">
-            <div class="video-post" data-caption="Sunday Worship Service" data-video="https://www.youtube.com/embed/9C1BCAgu2I8">
-                <img src="" alt="Sunday Worship Service" />
-                <div class="video-post-content">
-                    <h4>Sunday Worship Service</h4>
-                    <p>Experience our heartfelt Sunday worship, filled with music and prayer.</p>
-                    <div class="video-post-meta">Posted on September 10, 2025</div>
-                </div>
-            </div>
 
-            <div class="video-post" data-caption="Sunday Sermon Highlights" data-video="https://www.youtube.com/embed/3z-MvU3H7y8">
-                <img src="" alt="Sunday Sermon Highlights" />
+            <div class="video-post" data-caption="Sunday Sermon Highlights" data-video="https:w.youte.com/embed/3z-MvU3H7y8">
+                <img src="" alt="Sunday Sermon Highlights">
                 <div class="video-post-content">
                     <h4>Sunday Sermon Highlights</h4>
                     <p>Key moments from our latest Sunday sermon, inspiring faith and reflection.</p>
@@ -258,54 +652,161 @@
             </div>
         </div>
 
-        <!-- more sections like Community Outreach, Youth Events remain similar -->
-    </section>
+        <h2>Our Videos</h2>
+        <p>Watch highlights from our services, outreach programs, and youth events.</p>
 
+        <h3>Street Preaching</h3>
+<div class="videos-container">
+    <div class="video-post" data-caption="Sunday Worship Service" data-video="videos/Preaching/V1.mp4">
+        <video width="100%" controls>
+            <source src="videos/Preaching/V1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-post-content">
+    <h4>Street Preaching at Bantayan Market</h4>
+    <p>Sharing God’s Word with the community at Bantayan Market. A time of faith, encouragement, and public ministry.</p>
+    <div class="video-post-meta">Posted on September 10, 2025</div>
+</div>
+
+    </div>
+</div>
+
+        <h3>Sunday Presentation</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Sunday Worship Service" data-video="https://www.youtube.com/bed/9C1BCAgu2I8">
+                <img src="" alt="Sunday Worship Service">
+                <div class="video-post-content">
+                    <h4>Sunday Worship Service</h4>
+                    <p>Experience our heartfelt Sunday worship, filled with music and prayer.</p>
+                    <div class="video-post-meta">Posted on September 10, 2025</div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Sunday Sermon Highlights" data-video="https:w.youte.com/embed/3z-MvU3H7y8">
+                <img src="" alt="Sunday Sermon Highlights">
+                <div class="video-post-content">
+                    <h4>Sunday Sermon Highlights</h4>
+                    <p>Key moments from our latest Sunday sermon, inspiring faith and reflection.</p>
+                    <div class="video-post-meta">Posted on September 3, 2025</div>
+                </div>
+            </div>
+        </div>
+        <h3>Community Outreach</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Community Outreach Highlights" data-video="videos/Default/verse.mp4" src="videos/Default/verse.mp4">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Community Outreach Highlights">
+                <div class="video-post-content">
+                    <h4>Community Outreach Highlights</h4>
+                    <p>Highlights from our community service initiatives, making a difference together.</p>
+                    <div class="video-post-meta">Posted on August 15, 2025</div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Charity Drive Recap" data-video="">
+                <img src="" alt="Charity Drive Recap">
+                <div class="video-post-content">
+                    <h4>Charity Drive Recap</h4>
+                    <p>A look back at our recent charity drive, supporting those in need.</p>
+                    <div class="video-post-meta">Posted on July 25, 2025</div>
+                </div>
+            </div>
+        </div>
+        <h3>Youth Events</h3>
+        <div class="videos-container">
+            <div class="video-post" data-caption="Youth Worship Night" data-video="https://www.youtube.com/embed/1TkG0Y1Z-Zw">
+                <img src="" alt="Under Development">
+                <div class="video-post-content">
+                    <h4>Youth Worship Night</h4>
+                    <p>Join our youth in an inspiring night of worship and fellowship.</p>
+                    <div class="video-post-meta">Posted on July 20, 2025</div>
+                </div>
+            </div>
+            <div class="video-post" data-caption="Church Retreat 2025" data-video="">
+                <img src="" alt="Under Development">
+                <div class="video-post-content">
+                    <h4>Church Retreat 2025</h4>
+                    <p>Relive the memorable moments from our annual church retreat.</p>
+                    <div class="video-post-meta">Posted on June 5, 2025</div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="content" id="members">
         <h2>Our Members</h2>
         <p>Meet the dedicated individuals who lead and support our church community.</p>
-
         <h3>Adult Members</h3>
         <div class="members-grid">
             <div class="member-item">
-                <img src="" alt="Pastor Bonifacion Pejano" />
+                <img src="" alt="Pastor Bonifacion Pejano">
                 <h4>Pastor Bonifacion Pejano</h4>
                 <div class="role">Lead Pastor</div>
                 <p>Pastor Bonifacion has led our congregation for over 15 years, guiding us with wisdom and faith.</p>
             </div>
-
             <div class="member-item">
-                <img src="" alt="Erlinda Pejano" />
+                <img src="" alt="Erlinda Pejano">
                 <h4>Erlinda Pejano</h4>
                 <div class="role">Community Outreach Coordinator</div>
-                <p>Erlinda organizes our outreach programs, serving our community with compassion.</p>
+                <p>Emily organizes our outreach programs, serving our community with compassion.</p>
+            </div>
+        </div>
+        <h3>Youth Members</h3>
+        <div class="members-grid">
+            <div class="member-item">
+                <img src="" alt="John Ray Golanie">
+                <h4>John Ray Golanie</h4>
+                <div class="role">Youth Worship Leader</div>
+                <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
+            </div>
+
+            <div class="member-item">
+                <img src="" alt="Jonel Gapor">
+                <h4>Jonel Gapor</h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
+            </div>
+
+             <div class="member-item">
+                <img src="" alt="Martha P Samanero">
+                <h4>Martha P Samanero</h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
+            </div>
+
+        </div>
+        <h3>Kids Members</h3>
+        <div class="members-grid">
+            <div class="member-item">
+                <img src="" alt="Not Added yet">
+                <h4></h4>
+                <div class="role">Youth Worship Leader</div>
+                <p>John Ray brings joy to our services with his inspiring music and heartfelt worship.</p>
+            </div>
+            <div class="member-item">
+                <img src="" alt="Not Added yet">
+                <h4></h4>
+                <div class="role">Youth Pastor</div>
+                <p>Michael is passionate about mentoring our youth and fostering their spiritual growth.</p>
             </div>
         </div>
     </section>
-
     <section class="content" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:info@fundamentalchurch.org" style="color:#1877f2;">info@fundamentalchurch.org</a></p>
-        <p>Phone: <a href="tel:+5551234567" style="color:#1877f2;">(555) 123-4567</a></p>
-        <p>Address: Mananao Ticad, Bantayan, Cebu</p>
-
+        <p>Email: <a href="mailto:info@fundamentalchurch.org" style="color: #1877f2;">info@fundamentalchurch.org</a></p>
+        <p>Phone: <a href="tel:+5551234567" style="color: #1877f2;">(555) 123-4567</a></p>
+        <p>Address: Manan ao ticad Bantayan Cebu</p>
         <form class="contact-form" id="contact-form">
-            <input type="text" id="name" placeholder="Your Name" required aria-label="Name" />
-            <input type="email" id="email" placeholder="Your Email" required aria-label="Email" />
+            <input type="text" id="name" placeholder="Your Name" required aria-label="Name">
+            <input type="email" id="email" placeholder="Your Email" required aria-label="Email">
             <textarea id="message" rows="5" placeholder="Your Message" required aria-label="Message"></textarea>
             <button type="submit">Send Message</button>
             <div class="form-message" id="contact-message"></div>
         </form>
     </section>
-
     <div class="lightbox" id="lightbox">
         <span class="lightbox-close" id="lightbox-close">&times;</span>
         <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
-        <div id="lightbox-content" class="lightbox-content"></div>
+        <div id="lightbox-content"></div>
         <div class="lightbox-caption" id="lightbox-caption"></div>
         <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
     </div>
-
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Fundamental Christian Church. All rights reserved.</p>
@@ -314,37 +815,39 @@
                 <a href="https://twitter.com" target="_blank" aria-label="Twitter">Twitter</a>
                 <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
             </div>
-
             <div class="newsletter">
                 <form id="newsletter-form">
-                    <input type="email" placeholder="Subscribe to our newsletter" required aria-label="Newsletter Email" />
+                    <input type="email" placeholder="Subscribe to our newsletter" required aria-label="Newsletter Email">
                     <button type="submit">Subscribe</button>
                 </form>
                 <div class="form-message" id="newsletter-message"></div>
             </div>
         </div>
     </footer>
-
     <script>
-        // ---------- UI: Hamburger ----------
+        // Hamburger menu toggle
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('nav-menu');
-        hamburger.addEventListener('click', () => navMenu.classList.toggle('active'));
-
-        // ---------- Smooth scrolling ----------
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        // Smooth scrolling with debouncing
+        let scrollTimeout;
         document.querySelectorAll('.navbar a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
-                if (!targetSection) return;
-                window.scrollTo({ top: targetSection.offsetTop - 60, behavior: 'smooth' });
-                if (window.innerWidth <= 768) navMenu.classList.remove('active');
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60,
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                }
             });
         });
-
-        // ---------- Active nav link highlighting (debounced) ----------
-        let scrollTimeout;
+        // Active nav link highlighting with debouncing
         window.addEventListener('scroll', () => {
             clearTimeout(scrollTimeout);
             scrollTimeout = setTimeout(() => {
@@ -353,22 +856,28 @@
                 let currentSection = '';
                 sections.forEach(section => {
                     const sectionTop = section.offsetTop - 80;
-                    if (window.scrollY >= sectionTop) currentSection = section.getAttribute('id');
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
                 });
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href').substring(1) === currentSection) link.classList.add('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
                 });
             }, 100);
         });
-
-        // ---------- Image load fade-in ----------
+        // Image loading
         document.querySelectorAll('.gallery-item img, .video-post img, .member-item img').forEach(img => {
-            img.addEventListener('load', () => img.classList.add('loaded'));
-            if (img.complete) img.classList.add('loaded');
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
+            });
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
         });
-
-        // ---------- Contact form ----------
+        // Contact form submission
         document.getElementById('contact-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = document.getElementById('name').value.trim();
@@ -384,8 +893,7 @@
                 contactMessage.className = 'form-message error';
             }
         });
-
-        // ---------- Newsletter form ----------
+        // Newsletter form submission
         document.getElementById('newsletter-form').addEventListener('submit', function (e) {
             e.preventDefault();
             const email = this.querySelector('input').value.trim();
@@ -399,93 +907,57 @@
                 newsletterMessage.className = 'form-message error';
             }
         });
-
-        // ---------- Lightbox (supports local MP4 and YouTube embeds) ----------
+        // Lightbox functionality for images and videos
         const lightbox = document.getElementById('lightbox');
         const lightboxContent = document.getElementById('lightbox-content');
         const lightboxCaption = document.getElementById('lightbox-caption');
         const lightboxClose = document.getElementById('lightbox-close');
         const lightboxPrev = document.getElementById('lightbox-prev');
         const lightboxNext = document.getElementById('lightbox-next');
-
-        const galleryItems = Array.from(document.querySelectorAll('.gallery-item'));
-        const videoItems = Array.from(document.querySelectorAll('.video-post'));
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const videoItems = document.querySelectorAll('.video-post');
         const allMediaItems = [...galleryItems, ...videoItems];
         let currentIndex = 0;
-
-        function createLightboxMedia(item) {
-            const dataVideo = item.getAttribute('data-video') || '';
-            // If this is a video-post with a data-video:
-            if (item.classList.contains('video-post') && dataVideo) {
-                if (/youtube\.com|youtu\.be/.test(dataVideo)) {
-                    // Normalize YouTube URL to an embed link if needed
-                    let src = dataVideo;
-                    const watchMatch = src.match(/[?&]v=([^&]+)/);
-                    if (watchMatch) src = `https://www.youtube.com/embed/${watchMatch[1]}?rel=0&autoplay=1`;
-                    const shortMatch = src.match(/youtu\.be\/([^?&]+)/);
-                    if (shortMatch) src = `https://www.youtube.com/embed/${shortMatch[1]}?rel=0&autoplay=1`;
-
-                    const iframe = document.createElement('iframe');
-                    iframe.src = src;
-                    iframe.width = '100%';
-                    iframe.height = '450';
-                    iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen');
-                    iframe.setAttribute('allowfullscreen', '');
-                    return iframe;
-                } else {
-                    // Local video file
-                    const video = document.createElement('video');
-                    video.controls = true;
-                    video.autoplay = true;
-                    video.style.maxWidth = '100%';
-                    video.style.maxHeight = '80vh';
-
-                    const source = document.createElement('source');
-                    source.src = dataVideo;
-                    source.type = 'video/mp4';
-                    video.appendChild(source);
-                    return video;
-                }
-            } else {
-                // Gallery image
-                const img = document.createElement('img');
-                const childImg = item.querySelector('img');
-                img.src = (childImg && childImg.src) ? childImg.src : '';
-                img.alt = item.getAttribute('data-caption') || 'Image';
-                return img;
-            }
-        }
-
         function updateLightbox(index) {
             const item = allMediaItems[index];
-            if (!item) return;
             lightboxContent.innerHTML = '';
-            const media = createLightboxMedia(item);
-            lightboxContent.appendChild(media);
-            lightboxCaption.textContent = item.getAttribute('data-caption') || item.querySelector('h4')?.textContent || '';
+            if (item.classList.contains('video-post')) {
+                const iframe = document.createElement('iframe');
+                iframe.src = item.getAttribute('data-video');
+                iframe.setAttribute('allow', 'autoplay; fullscreen');
+                iframe.setAttribute('allowfullscreen', '');
+                lightboxContent.appendChild(iframe);
+            } else {
+                const img = document.createElement('img');
+                img.src = item.querySelector('img').src;
+                img.alt = 'Lightbox Image';
+                lightboxContent.appendChild(img);
+            }
+            lightboxCaption.textContent = item.getAttribute('data-caption');
             currentIndex = index;
         }
-
-        // Click handlers for all media
-        allMediaItems.forEach((item, idx) => {
-            item.addEventListener('click', (e) => {
-                e.preventDefault();
-                updateLightbox(idx);
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateLightbox(index);
                 lightbox.style.display = 'flex';
-                document.body.style.overflow = 'hidden'; // prevent background scroll
             });
         });
-
-        // Close lightbox
-        function closeLightbox() {
+        videoItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateLightbox(index + galleryItems.length);
+                lightbox.style.display = 'flex';
+            });
+        });
+        lightboxClose.addEventListener('click', () => {
             lightbox.style.display = 'none';
             lightboxContent.innerHTML = '';
-            document.body.style.overflow = ''; // restore scroll
-        }
-        lightboxClose.addEventListener('click', closeLightbox);
-        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-        // Navigation
+        });
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+                lightboxContent.innerHTML = '';
+            }
+        });
         lightboxPrev.addEventListener('click', () => {
             currentIndex = (currentIndex - 1 + allMediaItems.length) % allMediaItems.length;
             updateLightbox(currentIndex);
@@ -494,13 +966,16 @@
             currentIndex = (currentIndex + 1) % allMediaItems.length;
             updateLightbox(currentIndex);
         });
-
         // Keyboard navigation for lightbox
         document.addEventListener('keydown', (e) => {
             if (lightbox.style.display === 'flex') {
-                if (e.key === 'ArrowLeft') lightboxPrev.click();
-                else if (e.key === 'ArrowRight') lightboxNext.click();
-                else if (e.key === 'Escape') lightboxClose.click();
+                if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                } else if (e.key === 'Escape') {
+                    lightboxClose.click();
+                }
             }
         });
     </script>
