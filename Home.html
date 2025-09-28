@@ -3,64 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Welcome to Fundamental Christian Church, a community dedicated to faith, worship, and outreach.">
     <title>Fundamental Christian Church</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
 
         body {
-            line-height: 1.6;
-            background-color: #f9f9f9;
+            line-height: 1.7;
+            background-color: #f5f6f5;
+            color: #333;
         }
 
         /* Navigation Bar */
         .navbar {
-            background: linear-gradient(90deg, #2c3e50, #34495e);
+            background: linear-gradient(90deg, #1a3c5e, #265780);
             padding: 1.5rem;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .navbar ul {
             list-style: none;
             display: flex;
-            justify-content: center;
-            gap: 2.5rem;
+            gap: 3rem;
         }
 
         .navbar a {
-            color: #ecf0f1;
+            color: #f4f7fa;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 400;
+            transition: color 0.3s ease;
         }
 
-        .navbar a:hover {
-            color: #3498db;
-            transform: scale(1.1);
+        .navbar a:hover, .navbar a.active {
+            color: #4a90e2;
+            border-bottom: 2px solid #4a90e2;
         }
 
-        .navbar a.active {
-            color: #3498db;
-            border-bottom: 2px solid #3498db;
+        .hamburger {
+            display: none;
+            font-size: 1.8rem;
+            color: #f4f7fa;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 100vh;
             background: url('https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
             position: relative;
         }
 
@@ -71,209 +84,672 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 2.5rem;
-            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.65);
+            padding: 3rem;
+            border-radius: 12px;
             position: relative;
             z-index: 1;
-            animation: fadeIn 1s ease-in;
+            animation: fadeIn 1.2s ease-in-out;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            font-weight: 600;
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 2rem;
         }
 
         .hero-button {
             display: inline-block;
-            padding: 0.8rem 2rem;
-            background-color: #3498db;
+            padding: 1rem 2.5rem;
+            background-color: #4a90e2;
             color: #fff;
             text-decoration: none;
-            border-radius: 25px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 400;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .hero-button:hover {
-            background-color: #2980b9;
+            background-color: #357abd;
             transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
-        /* Content Section */
+        /* Content Sections */
         .content {
-            max-width: 1200px;
-            margin: 3rem auto;
-            padding: 0 1.5rem;
-            text-align: center;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 1100px;
+            margin: 4rem auto;
             padding: 2rem;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
             animation: slideUp 0.8s ease-in;
         }
 
         .content h2 {
             font-size: 2.5rem;
+            font-weight: 700;
+            color: #1a3c5e;
             margin-bottom: 1.5rem;
-            color: #2c3e50;
+            text-align: center;
         }
 
         .content p {
-            margin-bottom: 1rem;
-            color: #34495e;
             font-size: 1.1rem;
+            color: #34495e;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gallery Section */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .gallery-item img.loaded {
+            opacity: 1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .gallery-item::after {
+            content: attr(data-caption);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 0.5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+        }
+
+        .lightbox-caption {
+            color: #fff;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #4a90e2;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            color: #4a90e2;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none;
+            border-color: #4a90e2;
+            box-shadow: 0 0 5px rgba(74, 144, 226, 0.3);
+        }
+
+        .contact-form button {
+            padding: 0.8rem;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #357abd;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: #dff0d8;
+            color: #3c763d;
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: #f2dede;
+            color: #a94442;
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(90deg, #2c3e50, #34495e);
-            color: #ecf0f1;
+            background: linear-gradient(90deg, #1a3c5e, #265780);
+            color: #f4f7fa;
             text-align: center;
-            padding: 1.5rem;
-            position: relative;
+            padding: 2rem;
             width: 100%;
-            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #f4f7fa;
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #4a90e2;
+        }
+
+        .newsletter {
+            display: flex;
+        }
+
+        .newsletter input {
+            padding: 0.6rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            width: 200px;
+        }
+
+        .newsletter button {
+            padding: 0.6rem 1rem;
+            background-color: #4a90e2;
+            color: #fff;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter button:hover {
+            background-color: #357abd;
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes slideUp {
-            from { transform: translateY(20px); opacity: 0; }
+            from { transform: translateY(30px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
             .navbar ul {
+                display: none;
                 flex-direction: column;
-                align-items: center;
                 gap: 1.5rem;
+                background: #1a3c5e;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+            }
+
+            .navbar ul.active {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
 
             .hero-button {
-                padding: 0.6rem 1.5rem;
+                padding: 0.8rem 2rem;
                 font-size: 1rem;
             }
 
             .content h2 {
                 font-size: 2rem;
             }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .gallery-item img {
+                height: 150px;
+            }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             .hero p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
 
             .content {
-                margin: 1.5rem;
+                margin: 2rem 1rem;
                 padding: 1.5rem;
+            }
+
+            .newsletter input {
+                width: 150px;
+            }
+
+            .gallery-item img {
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <div class="navbar-container">
+            <span class="hamburger" id="hamburger">☰</span>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Welcome to Fundamental Christian Church</h1>
-            <p>Join us for worship, fellowship, and community outreach.</p>
-            <a href="#services" class="hero-button">Learn More</a>
+            <p>Join us in our mission to spread love, faith, and hope through worship and community service.</p>
+            <a href="#services" class="hero-button">Discover Our Services</a>
         </div>
     </section>
 
     <section class="content" id="about">
         <h2>About Us</h2>
-        <p>We are a welcoming community dedicated to sharing love, faith, and hope.</p>
-        <p>Our mission is to inspire and support one another through worship and service.</p>
+        <p>Fundamental Christian Church is a vibrant community committed to fostering spiritual growth and fellowship.</p>
+        <p>Our mission is to inspire and support one another through meaningful worship, education, and outreach programs.</p>
     </section>
 
     <section class="content" id="services">
         <h2>Our Services</h2>
-        <p>Sunday Worship: 10:00 AM</p>
-        <p>Bible Study: Wednesdays at 7:00 PM</p>
-        <p>Community Outreach: Every Saturday</p>
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>Sunday Worship</h3>
+                <p>Join us every Sunday at 10:00 AM for a heartfelt worship experience.</p>
+            </div>
+            <div class="service-item">
+                <h3>Bible Study</h3>
+                <p>Deepen your faith with our Wednesday Bible Study at 7:00 PM.</p>
+            </div>
+            <div class="service-item">
+                <h3>Community Outreach</h3>
+                <p>Participate in our outreach programs every Saturday to serve our community.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="content" id="activities">
+        <h2>Our Activities</h2>
+        <p>Explore the vibrant activities and events that bring our community together.</p>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-caption="Community Picnic">
+                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2070&auto=format&fit=crop" alt="Community Picnic">
+            </div>
+            <div class="gallery-item" data-caption="Youth Group Event">
+                <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=2070&auto=format&fit=crop" alt="Youth Group Event">
+            </div>
+            <div class="gallery-item" data-caption="Charity Drive">
+                <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7ef0?q=80&w=2070&auto=format&fit=crop" alt="Charity Drive">
+            </div>
+            <div class="gallery-item" data-caption="Worship Night">
+                <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=2070&auto=format&fit=crop" alt="Worship Night">
+            </div>
+            <div class="gallery-item" data-caption="Family Retreat">
+                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=2070&auto=format&fit=crop" alt="Family Retreat">
+            </div>
+            <div class="gallery-item" data-caption="Prayer Meeting">
+                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=2070&auto=format&fit=crop" alt="Prayer Meeting">
+            </div>
+            <div class="gallery-item" data-caption="Volunteer Day">
+                <img src="https://images.unsplash.com/photo-1532629345-21627e072471?q=80&w=2070&auto=format&fit=crop" alt="Volunteer Day">
+            </div>
+            <div class="gallery-item" data-caption="Holiday Celebration">
+                <img src="https://images.unsplash.com/photo-1608240549716-4b8b9d5df07c?q=80&w=2070&auto=format&fit=crop" alt="Holiday Celebration">
+            </div>
+        </div>
     </section>
 
     <section class="content" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: info@fundamentalchurch.org</p>
-        <p>Phone: (555) 123-4567</p>
+        <p>Email: <a href="mailto:info@fundamentalchurch.org">info@fundamentalchurch.org</a></p>
+        <p>Phone: <a href="tel:+5551234567">(555) 123-4567</a></p>
         <p>Address: 123 Faith Road, Hometown, USA</p>
+        <form class="contact-form" id="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required aria-label="Name">
+            <input type="email" id="email" placeholder="Your Email" required aria-label="Email">
+            <textarea id="message" rows="5" placeholder="Your Message" required aria-label="Message"></textarea>
+            <button type="submit">Send Message</button>
+            <div class="form-message" id="contact-message"></div>
+        </form>
     </section>
 
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close" id="lightbox-close">&times;</span>
+        <span class="lightbox-nav lightbox-prev" id="lightbox-prev">&#10094;</span>
+        <img id="lightbox-image" src="" alt="Lightbox Image">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <span class="lightbox-nav lightbox-next" id="lightbox-next">&#10095;</span>
+    </div>
+
     <footer>
-        <p>&copy; 2025 Fundamental Christian Church. All rights reserved.</p>
+        <div class="footer-content">
+            <p>&copy; 2025 Fundamental Christian Church. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook">Facebook</a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter">Twitter</a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram">Instagram</a>
+            </div>
+            <div class="newsletter">
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Subscribe to our newsletter" required aria-label="Newsletter Email">
+                    <button type="submit">Subscribe</button>
+                </form>
+                <div class="form-message" id="newsletter-message"></div>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling with debouncing
+        let scrollTimeout;
         document.querySelectorAll('.navbar a').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href').substring(1);
                 const targetSection = document.getElementById(targetId);
                 window.scrollTo({
-                    top: targetSection.offsetTop - 60,
+                    top: targetSection.offsetTop - 70,
                     behavior: 'smooth'
                 });
+                if (window.innerWidth <= 768) {
+                    navMenu.classList.remove('active');
+                }
             });
         });
 
-        // Add active class to current nav link
+        // Active nav link highlighting with debouncing
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.navbar a');
-            let currentSection = '';
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const sections = document.querySelectorAll('section');
+                const navLinks = document.querySelectorAll('.navbar a');
+                let currentSection = '';
 
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                if (window.scrollY >= sectionTop) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 100;
+                    if (window.scrollY >= sectionTop) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === currentSection) {
-                    link.classList.add('active');
-                }
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === currentSection) {
+                        link.classList.add('active');
+                    }
+                });
+            }, 100);
+        });
+
+        // Image loading
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('load', () => {
+                img.classList.add('loaded');
             });
+            if (img.complete) {
+                img.classList.add('loaded');
+            }
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const contactMessage = document.getElementById('contact-message');
+
+            if (name && email && message) {
+                contactMessage.textContent = 'Thank you for your message! We will get back to you soon.';
+                contactMessage.className = 'form-message success';
+                this.reset();
+            } else {
+                contactMessage.textContent = 'Please fill out all fields.';
+                contactMessage.className = 'form-message error';
+            }
+        });
+
+        // Newsletter form submission
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const email = this.querySelector('input').value.trim();
+            const newsletterMessage = document.getElementById('newsletter-message');
+
+            if (email) {
+                newsletterMessage.textContent = 'Thank you for subscribing to our newsletter!';
+                newsletterMessage.className = 'form-message success';
+                this.reset();
+            } else {
+                newsletterMessage.textContent = 'Please enter a valid email address.';
+                newsletterMessage.className = 'form-message error';
+            }
+        });
+
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        function updateLightbox(index) {
+            const item = galleryItems[index];
+            lightboxImage.src = item.querySelector('img').src;
+            lightboxCaption.textContent = item.getAttribute('data-caption');
+            currentIndex = index;
+        }
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateLightbox(index);
+                lightbox.style.display = 'flex';
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+
+        lightboxPrev.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+            updateLightbox(currentIndex);
+        });
+
+        lightboxNext.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % galleryItems.length;
+            updateLightbox(currentIndex);
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', (e) => {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'ArrowLeft') {
+                    lightboxPrev.click();
+                } else if (e.key === 'ArrowRight') {
+                    lightboxNext.click();
+                } else if (e.key === 'Escape') {
+                    lightboxClose.click();
+                }
+            }
         });
     </script>
 </body>
