@@ -1,38 +1,137 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ceb">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      margin: 50px;
-      background-color: #f0f0f0;
-    }
-    h1 {
-      color: #333;
-    }
-    a {
-      display: inline-block;
-      margin: 20px;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    a:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cebuano NIV Bible App - Bag-ong Tugon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <h1>Welcome to My Website</h1>
-  <p>This is the updated homepage for my GitHub Pages site.</p>
-  <a href="Signin.html">Go to Sign In Page</a>
-  <script src="script.js"></script>
-<img src="new.jpg" />
+<body class="min-h-screen text-gray-800">
+    <div id="mainApp" class="flex h-screen">
+        <!-- Sidebar for book navigation -->
+        <div id="sidebar" class="fixed inset-y-0 left-0 w-72 bg-white/90 shadow-2xl z-50 overflow-y-auto md:static md:translate-x-0">
+            <div class="p-6 border-b border-gray-200 bg-gradient-to-b from-blue-900/10 to-transparent">
+                <h2 class="text-2xl font-bold text-gray-800 flex items-center">
+                    <i class="fas fa-book-open mr-2 text-yellow-600"></i> Bag-ong Tugon
+                </h2>
+                <p class="text-sm text-gray-600 mt-1">Cebuano NIV</p>
+                <input id="searchBar" type="text" placeholder="🔍 Pangitaa ang bersikulo..."
+                       class="mt-4 w-full p-3 bg-gray-50 border border-gray-300 rounded-xl focus:outline-none focus:border-yellow-500 focus:bg-white transition-all">
+                <div id="searchResults" class="mt-2 text-sm text-gray-600"></div>
+            </div>
+            <div id="bookList" class="p-4 space-y-2"></div>
+            <div class="p-4 border-t border-gray-200">
+                <h3 class="text-lg font-semibold mb-2">Mga Bookmark</h3>
+                <div id="bookmarkList" class="space-y-2"></div>
+            </div>
+            <div class="p-4 border-t border-gray-200">
+                <h3 class="text-lg font-semibold mb-2">Mga Na-save nga Nota</h3>
+                <div id="notesList" class="space-y-2"></div>
+            </div>
+            <div class="p-4 border-t border-gray-200">
+                <h3 class="text-lg font-semibold mb-2">Mga Bersikulo para sa Wali</h3>
+                <div class="flex mb-2">
+                    <input id="newCategoryInput" type="text" placeholder="Pangalan sa Kategorya (e.g., Sunday Wali)"
+                           class="flex-1 p-2 bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                    <button id="addCategoryBtn" class="ml-2 px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <select id="preachingCategory" class="mb-2 p-2 w-full bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                    <option value="">Pilia ang Kategorya</option>
+                </select>
+                <div id="preachingVersesList" class="space-y-2"></div>
+            </div>
+        </div>
+        <!-- Overlay for mobile sidebar -->
+        <div id="overlay" class="fixed inset-0 bg-black/50 z-40 md:hidden hidden"></div>
+        <!-- Main content area -->
+        <div class="flex-1 flex flex-col">
+            <!-- Header -->
+            <header class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-4 shadow-lg">
+                <div class="flex justify-between items-center max-w-4xl mx-auto">
+                    <h1 class="text-xl font-bold flex items-center">
+                        <i class="fas fa-bible mr-2"></i> Cebuano NIV Bible
+                    </h1>
+                    <div class="flex items-center space-x-2">
+                        <button id="toggleSettings" class="text-2xl p-2 rounded-full hover:bg-blue-800 transition">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <button id="toggleSidebar" class="text-2xl p-2 rounded-full hover:bg-blue-800 transition">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <!-- Settings Panel -->
+            <div id="settingsPanel" class="fixed inset-y-0 right-0 w-72 bg-white/90 shadow-2xl z-50 p-6 overflow-y-auto hidden md:static md:w-1/4">
+                <h3 class="text-lg font-semibold mb-4">Mga Setting</h3>
+                <div class="mb-4">
+                    <label for="textSize" class="block text-sm font-medium text-gray-700">Gidak-on sa Teksto</label>
+                    <select id="textSize" class="mt-1 p-2 w-full bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                        <option value="small">Gamay (16px)</option>
+                        <option value="medium" selected>Tungatunga (18px)</option>
+                        <option value="large">Dako (20px)</option>
+                        <option value="xlarge">Labing Dako (40px)</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="theme" class="block text-sm font-medium text-gray-700">Tema</label>
+                    <select id="theme" class="mt-1 p-2 w-full bg-white border border-gray-300 rounded-lg focus:outline-none focus:border-yellow-500">
+                        <option value="light">Klaro</option>
+                        <option value="dark">Ngig</option>
+                    </select>
+                </div>
+                <button id="closeSettings" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Isira</button>
+            </div>
+            <!-- Main content -->
+            <main class="flex-1 p-6 overflow-y-auto">
+                <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+                    <div id="chapterNav" class="mb-6 flex flex-wrap gap-4 items-center"></div>
+                    <div id="chapterContent" class="prose prose-lg max-w-none text-gray-700 leading-relaxed"></div>
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold mb-2">Mga Nota</h3>
+                        <textarea id="notesArea" class="notes-area w-full p-3 border border-gray-300 rounded-xl focus:outline-none focus:border-yellow-500" placeholder="Isulat ang imong mga nota diri..."></textarea>
+                        <button id="saveNote" class="mt-2 px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition">I-save ang Nota</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <!-- Preaching Verse Page -->
+    <div id="preachingVersePage" class="hidden h-screen p-6 overflow-y-auto">
+        <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+            <div class="flex justify-between mb-4">
+                <button id="prevVerseBtn" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                    <i class="fas fa-arrow-left mr-2"></i> Miaging
+                </button>
+                <button id="backToMain" class="px-2 py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+                <button id="nextVerseBtn" class="px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">
+                    <i class="fas fa-arrow-right mr-2"></i> Sunod
+                </button>
+            </div>
+            <h2 id="preachingVerseTitle" class="text-3xl font-bold text-gray-900 mb-6"></h2>
+            <div id="preachingVerseContent" class="prose prose-lg max-w-none text-gray-700 leading-relaxed"></div>
+            <div id="noMoreVersesMsg" class="mt-4 text-gray-500 hidden"></div>
+        </div>
+    </div>
+    <!-- Summary Page -->
+    <div id="summaryPage" class="hidden h-screen p-6 overflow-y-auto">
+        <div class="max-w-4xl mx-auto bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8">
+            <div class="flex justify-center mb-4">
+                <button id="backToSummaryMain" class="px-2 py-2 bg-gray-500 text-white rounded-full hover:bg-gray-600 transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <h2 id="summaryTitle" class="text-3xl font-bold text-gray-900 mb-6 text-center"></h2>
+            <div id="summaryContent" class="prose prose-lg max-w-none text-gray-700 leading-relaxed"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
