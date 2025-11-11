@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Gallery</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>Play Video</text></svg>">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -23,6 +24,7 @@
             font-size: 2.5rem;
             color: #00d4ff;
             text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+            transition: all 0.3s;
         }
         .gallery {
             display: grid;
@@ -99,22 +101,29 @@
         .error {
             color: #ff6b6b;
             font-weight: bold;
+            padding: 20px;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
         }
         footer {
             margin-top: 50px;
             font-size: 0.9rem;
             color: #777;
         }
+        .ph-time {
+            font-weight: bold;
+            color: #00d4ff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>My Video Gallery</h1>
-        <p>Click any video to play • <strong>PH Time:</strong> November 11, 2025 3:10 PM</p>
-
-        <div id="loading" class="loading">Loading videos...</div>
+        <p>Click any video to play • <strong>PH Time:</strong> <span id="phTime" class="ph-time">Loading...</span></p>
+        <div id="loading" class="loading">Loading videos from ngrok...</div>
         <div id="error" class="error" style="display:none;"></div>
-
         <div id="gallery" class="gallery"></div>
     </div>
 
@@ -125,22 +134,51 @@
     </div>
 
     <footer>
-        <p>Powered by ASP.NET Core • Running on localhost:44310</p>
+        <p>API: <code>https://0cc6b814deac.ngrok-free.app</code> • Hosted on GitHub Pages</p>
     </footer>
 
     <script>
-        const API_URL = '';
+        // === CONFIG: CHANGE ONLY WHEN YOU RESTART NGROK ===
+        const NGROK_URL = 'https://0cc6b814deac.ngrok-free.app';
+        const API_LIST = `${NGROK_URL}/api/Video/list`;
+
         const gallery = document.getElementById('gallery');
         const modal = document.getElementById('modal');
         const player = document.getElementById('player');
         const loading = document.getElementById('loading');
         const errorDiv = document.getElementById('error');
 
-        // Fetch and display all videos
+        // === PH Time (UTC+8) ===
+        function updatePHTime() {
+            const now = new Date();
+            const phTime = now.toLocaleString('en-PH', {
+                timeZone: 'Asia/Manila',
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('phTime').textContent = phTime;
+        }
+        updatePHTime();
+        setInterval(updatePHTime, 1000);
+
+        // === Load Videos ===
         async function loadVideos() {
             try {
-                const res = await fetch(`https://0cc6b814deac.ngrok-free.app/api/Video/list`);
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const res = await fetch(API_LIST, {
+                    method: 'GET',
+                    credentials: 'include'
+                });
+
+                if (!res.ok) {
+                    const text = await res.text();
+                    throw new Error(`HTTP ${res.status}: ${text.substring(0, 100)}`);
+                }
+
                 const videos = await res.json();
 
                 if (videos.length === 0) {
@@ -149,35 +187,41 @@
                 }
 
                 gallery.innerHTML = videos.map(v => `
-                    <div class="video-card" onclick="playVideo('${v.playUrl}', '${v.title}')">
+                    <div class="video-card" onclick="playVideo('${v.playUrl}', '${escapeHtml(v.title)}')">
                         <div class="video-thumb">Play Video</div>
                         <div class="video-info">
                             <div class="video-title">${escapeHtml(v.title)}</div>
                             <div class="video-meta">
-                                ${(v.fileSize / (1024*1024)).toFixed(1)} MB • 
-                                ${new Date(v.uploadDate).toLocaleDateString('en-PH')}
+                                ${(v.fileSize / (1024*1024)).toFixed(1)} MB •
+                                ${new Date(v.uploadDate).toLocaleString('en-PH', { timeZone: 'Asia/Manila' })}
                             </div>
                         </div>
                     </div>
                 `).join('');
 
             } catch (err) {
-                console.error(err);
-                errorDiv.textContent = `Failed to load videos: ${err.message}`;
+                console.error('Fetch error:', err);
+                errorDiv.innerHTML = `
+                    <strong>Failed to load videos</strong><br>
+                    <small>Make sure your API is running and ngrok is active.</small><br><br>
+                    <code style="background:#333;padding:10px;border-radius:5px;display:block;">
+                        ${err.message}
+                    </code>
+                `;
                 errorDiv.style.display = 'block';
             } finally {
                 loading.style.display = 'none';
             }
         }
 
-        // Play video in modal
+        // === Play Video ===
         function playVideo(url, title) {
             player.src = url;
             document.querySelector('h1').textContent = `Now Playing: ${title}`;
             modal.classList.add('active');
         }
 
-        // Close modal
+        // === Close Modal ===
         function closeModal() {
             modal.classList.remove('active');
             player.pause();
@@ -185,22 +229,18 @@
             document.querySelector('h1').textContent = 'My Video Gallery';
         }
 
-        // Close on ESC or click outside
-        modal.addEventListener('click', e => {
-            if (e.target === modal) closeModal();
-        });
-        document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') closeModal();
-        });
+        // === Event Listeners ===
+        modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
-        // Safe HTML
+        // === Safe HTML ===
         function escapeHtml(text) {
             const div = document.createElement('div');
             div.textContent = text;
             return div.innerHTML;
         }
 
-        // Load on start
+        // === Start ===
         loadVideos();
     </script>
 </body>
