@@ -129,7 +129,7 @@
     </footer>
 
     <script>
-        const API_URL = 'https://0cc6b814deac.ngrok-free.app/api/Video';
+        const API_URL = '';
         const gallery = document.getElementById('gallery');
         const modal = document.getElementById('modal');
         const player = document.getElementById('player');
@@ -139,7 +139,7 @@
         // Fetch and display all videos
         async function loadVideos() {
             try {
-                const res = await fetch(`${API_URL}/list`);
+                const res = await fetch(`https://0cc6b814deac.ngrok-free.app/api/Video/list`);
                 if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 const videos = await res.json();
 
